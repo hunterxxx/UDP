@@ -27,7 +27,7 @@ public class Client{
             for(int i = 0; i < daten.size(); i++){
                 // Warten auf eingehendes Packet
                 receive = server.receive();
-                // Wenn keine Daten und kein Paket bekomme n               
+                // Wenn keine Daten und kein Paket bekommen              
                     if(!receive.equals("0") && !daten.contains(receive)){
                         temp = receive.split("#");
                         System.out.println("Interpret: " + temp[0] + "\t" + "Titel: " + temp[1]);
@@ -35,7 +35,7 @@ public class Client{
                     }
                 // Erstes MusikdateiPacket absenden
                 send = daten.get(i);
-                server.senden(send);
+                server.send(send);
             }
         }
     }
