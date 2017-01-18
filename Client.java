@@ -21,7 +21,7 @@ public class Client{
         String receive = new String();
         String send = new String();
         String[] temp = new String[2];
-        // Server empfängt und Sendet für immer
+        // Unendliche senden und empfängen
         while(true){
             // Alle Musikdaten einzeln senden
             for(int i = 0; i < daten.size(); i++){
@@ -33,7 +33,7 @@ public class Client{
                         System.out.println("Interpret: " + temp[0] + "\t" + "Titel: " + temp[1]);
                         daten.add(receive);
                     }
-                // Erstes MusikdateiPacket absenden
+                // Erstes MusikdateiPaket absenden
                 send = daten.get(i);
                 server.send(send);
             }
