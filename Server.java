@@ -62,17 +62,13 @@ public class Server {
         try {
             receiver.setSoTimeout((int) (zufall.nextDouble() * 2000));
             DatagramPacket empfangsPacket = new DatagramPacket(receiveData, receiveData.length);
-            try {
-                // Packet empfangen
-                receiver.receive(empfangsPacket);
-                // Inhalt des Packetes lesen
-                String inhalt = new String(empfangsPacket.getData());
-                // Inhalt noch zuschneiden und zurückgeben
-                inhalt = inhalt.substring(0, inhalt.indexOf("~"));
-                return inhalt;
-            } catch (SocketTimeoutException to) {
-
-            }
+            // Packet empfangen
+            receiver.receive(empfangsPacket);
+            // Inhalt des Packetes lesen
+            String inhalt = new String(empfangsPacket.getData());
+            // Inhalt noch zuschneiden und zurückgeben
+            inhalt = inhalt.substring(0, inhalt.indexOf("~"));
+            return inhalt;
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
